@@ -50,7 +50,7 @@ var questions = [
 		question: `
 	Where did I study?
 	a: COER
-    b: IIT Madras
+        b: IIT Madras
 	c: BOTH\n`,
 		answer: "c"
 	},
@@ -75,7 +75,7 @@ var questions = [
 		question: `
 	My desired holiday destination?
 	a: Europe
-    b: South America
+        b: South America
 	c: None of the above\n`,
 		answer: "a"
 	},
@@ -103,7 +103,7 @@ function results() {
   for (var j=0; j<highScores.length; j++) {
     var high = highScores[j];
     if(score > high.score){
-      console.log("Conratulations!You achieved a new high score. Please ping me and I'll update it");
+      console.log("Conratulations!You achieved a new high score. Please ping me a screenshot and I'll update it in high scores database");
       break;
     }
   }
