@@ -1,9 +1,10 @@
 //Do you know me quiz?
 var readlineSync = require("readline-sync");
-//const chalk = require("chalk");
+const chalk = require("chalk");
 
-var userName = readlineSync.question("What's your name? ");
-console.log("Welcome "+ userName + ", let's see how well do you know me");
+
+var userName = readlineSync.question(chalk.inverse("What's your name? "));
+console.log(chalk.bgCyan("Welcome "+ userName + ", let's see how well do you know me"));
 
 var score = 0;
 
@@ -22,18 +23,18 @@ var highScores = [
 //internal gameplay function
 function gameLogic(question, answer) {
   
-  var userAnswer = readlineSync.question(question);  //this line prints our question to user
+  var userAnswer = readlineSync.question(chalk.magenta(question));  //this line prints our question to user
   
   if(userAnswer.toLowerCase() === answer.toLowerCase()){
-    console.log("right!");
+    console.log(chalk.green("right!"));
     score+=1;
   }
   else {
-    console.log("wrong!");
+    console.log(chalk.red("wrong!"));
   }
 
-  console.log("current score: ", score);
-  console.log("-/-/-/-/-\n"); 
+  console.log(chalk.bold("current score: ", score));
+  console.log(chalk.dim("-/-/-/-/-\n")); 
 }
 
 
@@ -98,12 +99,12 @@ function gamePlay() {
 }  
 
 function results() {
-  console.log("Your final score:", score);
+  console.log(chalk.bgRed("Your final score:", score));
 
   for (var j=0; j<highScores.length; j++) {
     var high = highScores[j];
     if(score > high.score){
-      console.log("Conratulations!You achieved a new high score. Please ping me a screenshot and I'll update it in high scores database");
+      console.log(chalk.bgYellow("Conratulations!You achieved a new high score. Please ping me a screenshot and I'll update it in high scores database"));
       break;
     }
   }
